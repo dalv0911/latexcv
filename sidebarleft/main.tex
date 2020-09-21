@@ -188,7 +188,14 @@
 % can also be used for other boxes / environments
 \newcommand{\mpwidth}{\linewidth-\fboxsep-\fboxsep}
 	
-
+\hypersetup{
+setpagesize=false,
+ bookmarksnumbered=true,%
+ bookmarksopen=true,%
+ colorlinks=true,%
+ linkcolor=blue,
+ citecolor=red,
+}
 
 %============================================================================%
 %
@@ -265,9 +272,8 @@
 % param 2:	 event name (job position etc.)
 % param 3: Customer, Employer, Industry
 % param 4: Short description
-% param 5: work done (optional)
-% param 6: technologies include (optional)
-% param 7: achievements (optional)
+% param 5: work done
+% param 6: stacks
 \newcommand{\cvevent}[7] {
 	
 	% we wrap this part in a parbox, so title and description are not separated on a pagebreak
@@ -290,14 +296,8 @@
 
 	\ifthenelse{\isempty{#6}}{}{
 		\vspace{9pt}
-		\cvtext{\textbf{Technologies include:}}\\
+		\cvtext{\textbf{Stacks:}}\\
 		{#6}
-	}
-
-	\ifthenelse{\isempty{#7}}{}{
-		\vspace{9pt}
-		\cvtext{\textbf{Achievements include:}}\\
-		{#7}
 	}
 	\vspace{14pt}
 }
@@ -325,18 +325,6 @@
 	\cvtext{#4}\\[14pt]
 }
 
-%---------------------------------------------------------------------------------------
-%	QR CODE
-%----------------------------------------------------------------------------------------
-
-% Renders a qrcode image (centered, relative to the parentwidth)
-% param 1: percent width, from 0 to 1
-\newcommand{\cvqrcode}[1] {
-	\begin{center}
-		\includegraphics[width={#1}\mpwidth]{qrcode}
-	\end{center}
-}
-
 
 %============================================================================%
 %
@@ -357,104 +345,72 @@
 %---------------------------------------------------------------------------------------
 %	META IMAGE
 %----------------------------------------------------------------------------------------
-\includegraphics[width=\linewidth]{untitled.jpg}	%trimming relative to image size
+\includegraphics[width=\linewidth]{profile.jpg}	%trimming relative to image size
 
 %---------------------------------------------------------------------------------------
 %	META SKILLS
 %----------------------------------------------------------------------------------------
 \cvsection{SKILLS}
 
-\cvskill{Python} {5+ yrs} {1} \\[-2pt]
+\cvskill{Go} {1+ yrs} {0.4} \\[-2pt]
 
-\cvskill{Ansible} {5+ yrs} {1} \\[-2pt]
-
-\cvskill{Linux} {5+ yrs} {1} \\[-2pt]
-
-\cvskill{Open Source Tools} {5+ yrs} {1} \\[-2pt]
-
-\cvskill{Django} {5+ yrs} {0.8} \\[-2pt]
-
-\cvskill{Html/CSS} {3+ yrs} {0.72} \\[-2pt]
+\cvskill{Python} {3+ yrs} {0.69} \\[-2pt]
 
 \cvskill{Javascript} {3+ yrs} {0.69} \\[-2pt]
 
-\cvskill{GIT} {3+ yrs} {1} \\[-2pt]
+\cvskill{Java} {4+ yrs} {0.8} \\[-2pt]
 
+\cvskill{PHP} {4+ yrs} {0.8} \\[-2pt]
+
+\cvskill{AWS Services} {2+ yrs} {0.6} \\[-2pt]
+
+\cvskill{CircleCI/Jenkins} {1+ yrs} {0.5} \\[-2pt]
+
+%---------------------------------------------------------------------------------------
+%	LANGUAGES
+%----------------------------------------------------------------------------------------
+\cvsection{LANGUAGES}
+
+\cvskill{Vietnamese} {Native} {1} \\[-2pt]
+\cvskill{Japanese} {Fluently} {0.8} \\[-2pt]
+\cvskill{English} {Limited} {0.6} \\[-2pt]
 
 
 \vfill\null
 \cvsection{CONTACT}
 	
-\icontext{MapMarker}{12}{Example St. 1\\12345 Somewhere}{black}\\[6pt]
-\icontext{MobilePhone}{12}{+49 178 910 11 12 13}{black}\\[6pt]
-\iconemail{Envelope}{12}{contact@example.com}{contact@example.com}{black}\\[6pt]
-
-\vfill\null
-\cvqrcode{0.7}
+\icontext{MapMarker}{12}{Japan 272-0144\\Chiba, Ichikawa, Arai 2-10}{black}\\[6pt]
+\icontext{MobilePhone}{12}{+81 070 2805 3301}{black}\\[6pt]
+\iconemail{Envelope}{12}{dalv0911@gmail.com}{dalv0911@gmail.com}{black}\\[6pt]
 
 %---------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
-\newpage
 \cvsection{EDUCATION}
 
 \cvmetaevent
-{2009 - 2011}
-{M. Sc. Physics.}
-{Universität Bonn}
-{Main thematic priority of those master studies was numerical time series analysis of non-linear dynamical systems. Besides data analysis and transformation, great importance was attached to fast algorithms and efficient software architecture.
-
-In the master thesis a numerical approach for the detection of the direction of interaction was proposed. Analysis of this new approach was performed with the help computer simulations to find out its limits and to compare it to another commonly used approaches.
-
-This numerical approach was highly optimised for cluster computing and implemented in c++ . For those purposes a distributed computing cluster had to be set up and administrated.}
-
-\cvmetaevent
-{2006 - 2009}
-{B. Sc. Physics.}
-{Universität Bonn}
-{The topic for the bachelor's thesis was 'Feshbach resonance'. A numerical application was built to calculate the diagrams.}
-
-\vfill\null
-\cvqrcode{0.7}
+{2012/09 - 2017/06}
+{Computer Science (Hedspi Project)}
+{Hanoi University Of Science And Technology}
+{}
 
 %---------------------------------------------------------------------------------------
 %	CERTIFICATION
 %----------------------------------------------------------------------------------------
-\newpage
 \cvsection{CERTIFICATIONS}
 
 \cvmetaevent
-{LPIC 1 - Linux administrator}
+{The Fundamentals of Engineering (FE) }
 {}
 {}
-{Certificate issued by the Linux Professional Institute to prove abilities in Linux administration}
+{}
 
 \cvmetaevent
-{IBM InfoSphere Advanced DataStage Essentials}
+{Japanese-Language Proficiency Test at level N1}
 {}
 {}
-{Intense course about the ETL technologies and the use of IBM DataStage.}
+{}
 
-\cvmetaevent
-{Jump Start Program}
-{}
-{}
-{Two months full-time training in object oriented programming in Java SE/EE, software development, testing and modern enterprise web-frameworks. Other topics were object oriented design patterns, test-driven development, SQL-databases and webservers in Java environment (Tomcat / Glasfish / JBoss / Jety)}
-
-
-\cvmetaevent
-{Online Classes}
-{}
-{}
-{It is important for me to stay up to date with the newest topics in the field of IT. In DevOps it is also important to have a general overview and a hands-on experience on them. Therefore, besides intense article studies, I also keep myself up to date with online classes.}
-
-\vfill
-\cvqrcode{0.7}
-
-\newpage
-\mbox{} % hotfix to place qrcode on the bottom when there are not other elements
-\vfill
-\cvqrcode{0.7}
 
 \end{leftcolumn}
 \begin{rightcolumn}
@@ -463,9 +419,9 @@ This numerical approach was highly optimised for cluster computing and implement
 %----------------------------------------------------------------------------------------
 \fcolorbox{white}{darkcol}{\begin{minipage}[c][3.5cm][c]{1\mpwidth}
 	\begin {center}
-		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ ILYA RUMYANTSEV } } } } \\[-24pt]
+		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ DA LE VAN } } } } \\[-24pt]
 		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
-		\large{ \textcolor{white} {Freelance Automation  Consultant and Developer} }
+		\large{ \textcolor{white} {Fullstack Engineer, Cloud Architect, Software Development} }
 	\end {center}
 \end{minipage}} \\[14pt]
 \vspace{-12pt}
@@ -474,15 +430,23 @@ This numerical approach was highly optimised for cluster computing and implement
 %	PROFILE
 %----------------------------------------------------------------------------------------
 \vfill\null
-\cvsection{PROFILE}
+\cvsection{SIDE PROJECTS}
 
-\cvtext{IT Consultant with strong theoretical skills and a passion for OpenSource sofware.\\
+\cvevent
+	{2015/12 - NOW}
+	{Japanese Vietnamese Dictionary}
+	{SUGE Team.}
+	{Me and my great collages created a team named as "SUGE", the team has total 6 members, we all are engineer. We was developed an android dictionary app 5 years ago, the app was grown quickly and got more than 50k downloads on Google Play. Ater a long time, 2 years ago we decided to built an iOS version for the app, and this year we finally released the WEB version for the app on May.}
+	{\cvlist{
+		\item Android: \href {https://play.google.com/store/apps/details?id=com.tasogare.dictionary&hl=ja}{Google Play Store}
+		\item iOS: \href {https://apps.apple.com/jp/app/suge-dict-tu-dien-nhat-viet/id1446211651}{Apple Store}
+		\item WEB: \href {https://suge.io} {suge.io}
+	}}
+	{\cvlist {
+		\item Android, Swift 4, Firebase, SQLite, VueJS, ExpressJS, MySQL
+		\item Trello, Notion
+	}}
 
-DevOps Engineer, specialized both in automation and in custom application development, experienced with large projects and heterogeneous infrastructures. The link between development and operations, comfortable in both.\\
-
-Customer-oriented and structured method of working, focused on quality and maintainability. Highly motivated to work in a team, both comfortable in big companies as in small teams.\\
-
-}
 
 %---------------------------------------------------------------------------------------
 %	WORK EXPERIENCE
@@ -491,153 +455,48 @@ Customer-oriented and structured method of working, focused on quality and maint
 \cvsection{WORK EXPERIENCE}
 
 \cvevent
-	{Sep 15 - NOW}
-	{DevOps/FullStack developer}
-	{Research and Development}
-	{A large IAM project required an intuitive interface for role-based access and rights management. At the same time, new workfows for role based access, life time and monitoring had to be established}
+	{2019/12 - NOW}
+	{Fullstack Engineer}
+	{SmartDrive Inc.}
+	{As an engineer at a startup company, I was responsible for add quickly more new features on both of backend and frontend side. \\ As a default, all of projects should be init with CI/CD setup to cut down testing and development cost.}
 	{\cvlist{
-		\item Creation of a web portal for role- and rights management
-		\item Establishing a connection to the existing MicroFocus role solution
-		\item Development of new role-based workfows and processes, as well as training and support
-		\item Maintenance of existing infrastructure
+		\item Develop and maintain a vehicle management service - MaaS.
+		\item Develop an IoT service based on AWS IoT as a component of the MaaS.
 	}}
 	{\cvlist {
-		\item Django for the roles- and rights management tool backend (backend is a REST interface)
-		\item Angular for the easy frontend interaction
-		\item HTML5/CSS3/Bootstrap3 for the frontend
-		\item Ansible + Docker for 1-click deployments
-	}}
-	{\cvlist{
-		\item A web based tool for an intuitive role assignment and administration
-		\item Online overview of company structures, projects, etc
-		\item Tools for role review, reporting and troubleshooting
+		\item Golang, Ruby On Rails, ReactJS, Microservices, AWS Kinesis, AWS Lambda, Amazon ECS, CircleCI, Jenkins
+		\item Fixma, Confluence, JIRA, Slack
 	}}
 
 \vfill\null
 \cvevent
-	{Jan 15 - Sep 15}
-	{DevOps engineer}
-	{Research and Development}
-	{Responsible for infrastructure architecture with regard on the future development and tool selection in the field of identity and access management}
+	{2017/10 - 2019/11}
+	{System Engineer}
+	{Dimage Share Inc.}
+	{}
 	{\cvlist{
-		\item Selection of future-proof tools for a large infrastructure
-		\item Infrastructure migration into a cloudstack cloud
-		\item Quality assurance in terms of documentation
-		\item Tool development for infrastructure overview
-		\item Development of Ansible modules for client
+		\item Developed a SDK helps android, iOS developers can easy display location based AD on smartphone
+		\item Developed an AD delivery system which help our client can easy display their custom AD on their media. It also collect the AD data (ex: click, imp, cv) on the media and show insight of the data to dashboard report.
+		\item Architect and built a BigData system which can handle 200 GB of csv GPS data from Google Cloud Storage and analysis the data by Spark run on Amazon EMR. The system also include a dashboard and an API services to insight the output of Amazon EMR which stored in AWS S3.
 	}}
 	{\cvlist {
-		\item Python for custom tool development
-		\item Ansible for infrastructure migration and cloud configuration
-		\item SLES12
-		\item Django for Visualization
-	}}
-	{\cvlist{
-		\item Ansible module for SLES12 System + Package registration
-		\item Python tool for ACL-administration in cloud
-		\item Fully automated migration of old systems into cloud with Ansible playbooks/roles
-		\item Django tool on LDAP - Schema Review
+		\item Objective-C, Android, PHP, Java, Tomcat, Python3, PySpark, Amazon EMR, S3, Laravel, Typescript
+		\item Backlog
 	}}
 
 \vfill\null
 \cvevent
-	{Mar 14 - Jan 15}
-	{Systems Analyst}
-	{Research and Development}
-	{Responsible for infrastructure architecture / automaton as well as custom tool development on a project for directory services and identity / access management in a large heterogeneous environment.}
+	{2015/07 - 2016/10}
+	{Internship}
+	{Kaopiz software co. ltd}
+	{}
 	{\cvlist{
-		\item Design and implementation of update and deployment process automaton
-		\item Quality assurance by design of infrastructure monitoring, centralized logging solutions and documentation
-		\item Customized tool creation for ldap operations
-		\item Installation and maintenance of single sign on solutions
-		\item Customer support in ldap / infrastructural / programming concerns
+		\item Developed a system supports learning japanese by tablet for japan students
+		\item Developed an android app for japanese learners
+		\item Comunicate with japan client and interpreter to vietnamese developers
 	}}
 	{\cvlist {
-		\item Ansible for infrastructure automaton and configuration management
-		\item Python for custom Tool development
-		\item nxLog + rsyslog + graylog for logging infrastructure
-		\item NOVELL eDirectory
-		\item Shibboleth as identity Provider combined with ldap
-		\item SLES11
-		\item Git for configuration and documentation versioning
-	}}
-	{\cvlist{
-		\item Drastically accelerated (~20x faster) the update process and improved its reliability by introduction of centralized configuration management
-		\item Extended the python-ldap library with interfaces for simplified access and modification of LDAP-Objects and searches
-		\item  Introduction of a complete and reliable centralized logging solution including log filtering and alerting for both windows and Linux systems
-	}}
-
-\vfill\null
-\cvevent
-	{Sep 13 - Mar 14}
-	{Systems Analyst}
-	{Tourism industry}
-	{Responsible for data transformation and tool customization on a migration (legacy c++ code from Solaris to Linux systems) project. The tasks include}
-	{\cvlist{
-		\item Tool development for identification of critical spots in code
-		\item Legacy code analysis
-		\item Quality assurance
-		\item Department-wide training in python
-		\item Consulting in topics of migration to Git
-	}}
-	{\cvlist {
-		\item Python
-		\item Git
-		\item Linux (Debian)
-	}}
-	{\cvlist{
-		\item Implementing code coverage and dynamic code checker for c++ legacy source code based on gcov
-		\item Introduction of Python + Environment in project
-	}}
-
-\vfill\null
-\cvevent
-	{Oct 12 - Sep 13}
-	{Systems Analyst}
-	{Tourism industry}
-	{Responsible for the infrastructure including performance and quality assurance on a large social media project.}
-	{\cvlist{
-		\item Organization and care of a cloud network (Debian systems)
-		\item Support for software developers
-		\item Configuration of open source tools for code quality and documentation
-		\item Implementation of performance checks
-		\item Implementation of automated reports on code quality and performance
-	}}
-	{\cvlist {
-		\item Python + Django for tool development
-		\item Sonar as static and dynamic tool for code analysis
-		\item OpenLDAP for user rights management
-		\item JIRA as the issue tracking/SCRUM tool
-	}}
-	{\cvlist{
-		\item Customized wiki and documentation application for developers with Jenkins and Git integration
-		\item Django web application to test the product performance using selenium tests in background with customizable tests / test
-environments ad a graphical evaluation using the jqPlot library (also Jaiascript / jQuery)
-		\item Improvement of the overall code quality by raising test coverage (+ \~30\%) and identification + elimination of potential code flaws
-	}}
-
-\vfill\null
-\cvevent
-	{Oct 11 - Oct 12}
-	{IT Consultant}
-	{Accenture Tech. Solutions}
-	{Large public service project with the goal to establish a platform for handling of finance processes with a very high number of transactions. Main focus was the migration of legacy data, by assuring data quality and transformation into various formats}
-	{\cvlist{
-		\item Customer consulting with regard to loading / unloading interfaces
-		\item Definition of requirements for transformation of legacy data
-		\item Implementation of algorithms for data transformation
-		\item Tool development for secure data transport
-		\item Tool development for tests of data quality/interface implementation
-	}}
-	{\cvlist {
-		\item Standard Linux tools, such as awk, sed, grep, ...
-		\item Python for in-depth data analysis
-		\item Java for transport layers
-		\item IBM DataStage
-	}}
-	{\cvlist{
-		\item Definition of uniform standards
-		\item Introduction of the standard Linux stack as global toolset for data analysis in project
+		\item php, javascript, android, java
 	}}
 
 % hotfixes to create fake-space to ensure the whole height is used
